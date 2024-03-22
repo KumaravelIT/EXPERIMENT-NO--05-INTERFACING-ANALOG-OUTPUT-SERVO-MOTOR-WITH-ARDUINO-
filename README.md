@@ -1,8 +1,8 @@
-###  DATE: 
+###  DATE: 22-03-2024
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  NAME: KUMARAVEL R
+###  ROLL NO :212221220029
+###  DEPARTMENT: INFORMATION TECHNOLOGY
 
 
 # EXPERIMENT NO 05 INTERFACING ANALOG OUTPUT SERVO MOTOR WITH ARDUINO
@@ -60,6 +60,8 @@ CIRCUIT DIAGRAM
  ![image](https://user-images.githubusercontent.com/36288975/163544618-6eb8a7b5-7f1a-428a-8d9f-fd899b145efb.png)
 
 ### FIGURE 04 CIRCUIT DIAGRAM
+<img width="686" alt="2024-03-22 (1)" src="https://github.com/KumaravelIT/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/117756569/44c9d9ad-5718-4120-b91f-521105529c8e">
+
 
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
@@ -75,10 +77,65 @@ CIRCUIT DIAGRAM
 
 ### PROGRAM :
  
+```
+#include<Servo.h>
+Servo s1;
+int po=0;
+int red=9;
+int green=8;
+void setup()
+{
+  s1.attach(6);
+  Serial.begin(9600);
+  pinMode(red,OUTPUT);
+  pinMode(green,OUTPUT);
+}
+void loop()
+{
+  for(po=0;po<=180;po+=5)
+  {
+    s1.write(po);
+    delay(200);
+    Serial.println(po);
+    if(po>=120)
+    {
+      digitalWrite(red,HIGH);
+      delay(200);
+      digitalWrite(red,LOW);
+      delay(200);
+  }
+  
+}
+for(po=180;po>=0;po-=5)
+{
+  s1.write(po);
+    delay(200);
+    Serial.println(po);
+  if(po<=100)
+  {
+      digitalWrite(green,HIGH);
+      delay(200);
+      digitalWrite(green,LOW);
+      delay(200);
+  }
+}  
+  
+  
+  
+  
+   
+    
+ 
+}
+```
 
 
+### schematic diagram
+![Web capture_22-3-2024_161543_www tinkercad com](https://github.com/KumaravelIT/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/117756569/cc9f9756-253c-4638-8deb-4e9db5db7b1a)
 
-
+### output:
+### graphical representation of angle:
+![Web capture_22-3-2024_161516_www tinkercad com](https://github.com/KumaravelIT/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/117756569/45022cde-ece6-4375-a9b6-37e7963f2607)
 
 
 
